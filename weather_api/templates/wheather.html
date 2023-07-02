@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Weather Forecast</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+    <style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+			margin: 0;
+			padding: 0;
+              
+		}
+
+		.container {
+			max-width: 800px;
+			margin: 30px auto;
+			background-color: #fff;
+			padding: 20px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			border-radius: 5px;
+		}
+
+		h1 {
+			font-size: 36px;
+			font-weight: bold;
+			margin-bottom: 20px;
+			text-align: center;
+		}
+
+		.current-weather {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin-top: 40px;
+			padding: 20px;
+			background-color: #f2f2f2;
+			border-radius: 5px;
+		}
+		.current-weather .temperature {
+			font-size: 60px;
+			font-weight: bold;
+			color: #4d4d4d;
+		}
+
+		.current-weather .description {
+			font-size: 24px;
+			color: #4d4d4d;
+		}
+
+		.footer {
+			margin-top: 40px;
+			font-size: 14px;
+			color: #999;
+			text-align: center;
+		}
+
+		.footer a {
+			color: #999;
+			text-decoration: none;
+		}
+	</style>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body class="bg-success">
+    
+	<div class="container">
+		<h1>Weather Forecast</h1>
+        <form method="post">
+            {% csrf_token %}
+    
+            <div class="form-group">
+              <input type="text" name="city" class="form-control m-2" value="cairo" placeholder="Enter city">
+            </div>
+            <button type="submit" class="btn btn-success">Submit</button>
+          </form>
+		<div class="current-weather">
+
+			<div class="description">{{city.city}} {{city.contery}}</div>
+			<div class="temperature">{{city.temperature}}° C</div>
+
+            
+			<div class="description">{{city.description}}</div>
+		</div>
+	</div>
+
+</body>
+</html>
